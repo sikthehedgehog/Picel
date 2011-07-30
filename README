@@ -1,0 +1,9 @@
+*** PLACEHOLDER README ***
+
+Please don't use Picel yet, I'm just uploading it here but I still don't have
+it all sorted out :/ Some things may change, etc. Also I still need to upload
+the documentation, OK?
+
+BTW, Picel is a library for loading and saving bitmaps, though right now it
+only supports PNG :O) (will add JPEG later, and GIF if I found out a suitable
+libgif-like library or documentation)
