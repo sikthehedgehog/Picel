@@ -2,6 +2,7 @@ CFLAGS=-Wall -O3 -s
 ARFLAGS=-r -s
 
 .PHONY: all
+.PHONY: install
 .PHONY: clean
 .PHONY: love
 
@@ -18,9 +19,13 @@ stream.o: stream.c picel.h
 loadpng.o: loadpng.c picel.h bitmap.h
 savepng.o: savepng.c picel.h bitmap.h
 
+install:
+	cp ./picel.h /usr/include
+	cp ./libpicel.a /usr/lib
+
 clean:
-	rm -rf libpicel.a
-	rm -rf *.o
+	rm -rf ./libpicel.a
+	rm -rf ./*.o
 
 love:
 	@echo not war?
