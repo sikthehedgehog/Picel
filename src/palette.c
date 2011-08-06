@@ -17,14 +17,8 @@
 // return: RGBA value of color, or 0 on failure
 //***************************************************************************
 
-uint32_t picel_get_color(const PicelBitmap *map, int id) {
-   // If index is valid, return the color
-   if (id >= 0 && id <= 0xFF)
-      return map->pal[id];
-
-   // If index isn't valid, just return 0
-   else
-      return 0;
+uint32_t picel_get_color(const PicelBitmap *map, uint8_t id) {
+   return map->pal[id];
 }
 
 //***************************************************************************
@@ -36,9 +30,6 @@ uint32_t picel_get_color(const PicelBitmap *map, int id) {
 // param color: new RGBA value
 //***************************************************************************
 
-void picel_set_color(PicelBitmap *map, int id, uint32_t color) {
-   // Store color only if the ID is valid
-   if (id >= 0 && id <= 0xFF)
-      map->pal[id] = color;
+void picel_set_color(PicelBitmap *map, uint8_t id, uint32_t color) {
+   map->pal[id] = color;
 }
-

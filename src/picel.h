@@ -47,8 +47,8 @@ uint32_t picel_get_pixel(const PicelBitmap *, int, int);
 void picel_set_pixel(PicelBitmap *, int, int, uint32_t);
 uint32_t picel_get_raw_pixel(const PicelBitmap *, int, int);
 void picel_set_raw_pixel(PicelBitmap *, int, int, uint32_t);
-uint32_t picel_get_color(const PicelBitmap *, int);
-void picel_set_color(PicelBitmap *, int, uint32_t);
+uint32_t picel_get_color(const PicelBitmap *, uint8_t);
+void picel_set_color(PicelBitmap *, uint8_t, uint32_t);
 uint8_t *picel_get_raw_data_ptr(PicelBitmap *);
 
 // Bitmap properties
