@@ -7,7 +7,7 @@ ARFLAGS=-r -s
 .PHONY: love
 
 all: libpicel.a
-libkina.a: bitmap.o palette.o drawing.o property.o stream.o \
+libpicel.a: bitmap.o palette.o drawing.o property.o stream.o \
 loadpng.o savepng.o
 	ar $(ARFLAGS) $@ $^
 
