@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Bitmap properties - Picel reference</title>
+  </head>
+  <body>
+    <section id="top">
+      <h1>Bitmap properties</h1>
+      <nav><ul>
+        <li><a href="#picel_get_width"><code
+                     >picel_get_width</code></a></li>
+        <li><a href="#picel_get_height"><code
+                     >picel_get_height</code></a></li>
+        <li><a href="#picel_is_paletted"><code
+                     >picel_is_paletted</code></a></li>
+        <li><a href="#picel_convert_bitmap"><code
+                     >picel_convert_bitmap</code></a></li>
+      </ul></nav>
+      <p class="up"><a href="./index.html">
+        Back to index
+      </a></p>
+    </section>
+    <section id="picel_get_width">
+      <h1><code>picel_get_width</code></h1>
+      <p class="syntax"><code>
+        <b>int</b> picel_get_width<b>(const PicelBitmap *</b>bitmap<b>)</b>
+      </code></p>
+      <p>
+        Gets the width of a bitmap, in pixels.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_height">
+      <h1><code>picel_get_height</code></h1>
+      <p class="syntax"><code>
+        <b>int</b> picel_get_height<b>(const PicelBitmap *</b>bitmap<b>)</b>
+      </code></p>
+      <p>
+        Gets the height of a bitmap, in pixels.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_is_paletted">
+      <h1><code>picel_is_paletted</code></h1>
+      <p class="syntax"><code>
+        <b>int</b> picel_is_paletted<b>(const PicelBitmap *</b>bitmap<b>)</b>
+      </code></p>
+      <p>
+        Checks if a bitmap is using a palette. If the bitmap is true color,
+        it returns zero. If the bitmap is using a palette, it returns
+        non-zero.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_convert_bitmap">
+      <h1><code>picel_convert_bitmap</code></h1>
+      <p class="syntax"><code>
+        <b>int</b> picel_convert_bitmap<b>(PicelBitmap *</b>bitmap<b>,
+        int</b> width<b>, int</b> height<b>, int</b> use_palette<b>)</b>
+      </code></p>
+      <p>
+        Resizes the bitmap and changes its format if needed. If the bitmap
+        is made smaller, pixels from the right and/or the bottom are removed.
+        If the bitmap is made bigger, pixels are added at the right and/or
+        the bottom.
+      </p>
+      <p>
+        To convert from true color to paletted, first set the bitmap's
+        palette using <a href="./palette.html#picel_set_color"><code
+        >picel_set_color</code></a> then call this function. The bitmap will
+        use that palette and colors will be adapted accordingly.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+  </body>
+</html>

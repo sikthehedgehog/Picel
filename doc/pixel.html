@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Pixel manipulation - Picel reference</title>
+  </head>
+  <body>
+    <section id="top">
+      <h1>Pixel manipulation</h1>
+      <nav><ul>
+        <li><a href="#picel_get_pixel"><code
+                     >picel_get_pixel</code></a></li>
+        <li><a href="#picel_set_pixel"><code
+                     >picel_set_pixel</code></a></li>
+        <li><a href="#picel_get_raw_pixel"><code
+                     >picel_get_raw_pixel</code></a></li>
+        <li><a href="#picel_set_raw_pixel"><code
+                     >picel_set_raw_pixel</code></a></li>
+        <li><a href="#picel_get_raw_data_ptr"><code
+                     >picel_get_raw_data_ptr</code></a></li>
+      </ul></nav>
+      <p class="up"><a href="./index.html">
+        Back to index
+      </a></p>
+    </section>
+    <section id="picel_get_pixel">
+      <h1><code>picel_get_pixel</code></h1>
+      <p class="syntax"><code>
+        <b>uint32_t</b> picel_get_pixel<b>(const PicelBitmap *</b>bitmap<b>,
+        int</b> x<b>, int</b> y<b>)</b>
+      </code></p>
+      <p>
+        Retrieves the color of a given pixel in a bitmap. The color is
+        returned in RGBA 8.8.8.8 format.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_pixel">
+      <h1><code>picel_set_pixel</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_pixel<b>(PicelBitmap *</b>map<b>, int</b> x<b>,
+        int</b> y<b>, uint32_t</b> color<b>)</b>
+      </code></p>
+      <p>
+        Changes the color of a given pixel in a bitmap. The color must be in
+        RGBA 8.8.8.8 format.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_raw_pixel">
+      <h1><code>picel_get_raw_pixel</code></h1>
+      <p class="syntax"><code>
+        <b>uint32_t</b> picel_get_raw_pixel<b>(const PicelBitmap
+        *</b>bitmap<b>, int</b> x<b>, int</b> y<b>)</b>
+      </code></p>
+      <p>
+        Retrieves the color of a given pixel in a bitmap. If the bitmap is
+        true color, the color is returned in RGBA 8.8.8.8 format. If the
+        bitmap uses a palette, the color is returned as a palette index
+        between 0 and 255.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_raw_pixel">
+      <h1><code>picel_set_raw_pixel</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_raw_pixel<b>(PicelBitmap *</b>bitmap<b>,
+        int</b> x<b>, int</b> y<b>, uint32_t</b> color<b>)</b>
+      </code></p>
+      <p>
+        Changes the color of a given pixel in a bitmap. If the bitmap is true
+        color, the color must be in RGBA 8.8.8.8 format. If the bitmap uses a
+        palette, the color must be a palette index between 0 and 255.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_raw_data_ptr">
+      <h1><code>picel_get_raw_data_ptr</code></h1>
+      <p class="syntax"><code>
+        <b>uint8_t *</b>picel_get_raw_data_ptr<b>(PicelBitmap
+        *</b>bitmap<b>)</b>
+      </code></p>
+      <p>
+        Returns a pointer to the raw pixel data. Pixels are stored linearly,
+        left to right, then top to bottom, no gaps between lines. It's up to
+        the program to not access data outbounds.
+      </p>
+      <p>
+        In true color bitmaps, each pixel takes up four bytes (each byte
+        representing red, green, blue and alpha values, respectively). In
+        bitmaps using a palette, each pixel is a single byte (representing a
+        palette index).
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+  </body>
+</html>

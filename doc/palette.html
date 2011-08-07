@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Palette manipulation - Picel reference</title>
+  </head>
+  <body>
+    <section id="top">
+      <h1>Palette manipulation</h1>
+      <nav><ul>
+        <li><a href="#picel_get_color"><code
+                     >picel_get_color</code></a></li>
+        <li><a href="#picel_set_color"><code
+                     >picel_set_color</code></a></li>
+      </ul></nav>
+      <p class="up"><a href="./index.html">
+        Back to index
+      </a></p>
+    </section>
+    <section id="picel_get_color">
+      <h1><code>picel_get_color</code></h1>
+      <p class="syntax"><code>
+        <b>uint32_t</b> picel_get_color<b>(const PicelBitmap *</b>bitmap<b>,
+        uint8_t</b> index<b>)</b>
+      </code></p>
+      <p>
+        Retrieves the color of a palette entry in a bitmap. The color is
+        returned in RGBA 8.8.8.8 format.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_color">
+      <h1><code>picel_set_color</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_color<b>(PicelBitmap *</b>bitmap<b>,
+        uint8_t</b> index<b>, uint32_t</b> color<b>)</b>
+      </code></p>
+      <p>
+        Changes the color of a palette entry in a bitmap. The color must be
+        in RGBA 8.8.8.8 format.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+  </body>
+</html>

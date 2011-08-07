@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>Bitmap creation - Picel reference</title>
+  </head>
+  <body>
+    <section id="top">
+      <h1>Bitmap creation</h1>
+      <nav><ul>
+        <li><a href="#picel_create_bitmap"><code
+                     >picel_create_bitmap</code></a></li>
+        <li><a href="#picel_destroy_bitmap"><code
+                     >picel_destroy_bitmap</code></a></li>
+        <li><a href="#picel_load_bitmap"><code
+                     >picel_load_bitmap</code></a></li>
+        <li><a href="#picel_load_png"><code
+                     >picel_load_png</code></a></li>
+        <li><a href="#picel_save_png"><code
+                     >picel_save_png</code></a></li>
+      </ul></nav>
+      <p class="up"><a href="./index.html">
+        Back to index
+      </a></p>
+    </section>
+    <section id="picel_create_bitmap">
+      <h1><code>picel_create_bitmap</code></h1>
+      <p class="syntax"><code>
+        <b>PicelBitmap *</b>picel_create_bitmap<b>(int</b> width<b>, int</b>
+        height<b>, int</b> use_palette<b>)</b>
+      </code></p>
+      <p>
+        Creates a new bitmap with the given properties. The last parameter
+        is zero for true color bitmaps and non-zero for paletted bitmaps.
+        Returns a pointer to the bitmap object or <code>NULL</code> if
+        something went wrong.
+      </p>
+      <p>
+        Remember to call <a href="#picel_destroy_bitmap"><code
+        >picel_destroy_bitmap</code></a> when you're done using the bitmap to
+        free the resources it's using.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_destroy_bitmap">
+      <h1><code>picel_destroy_bitmap</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_destroy_bitmap<b>(PicelBitmap *</b>bitmap<b>)</b>
+      </code></p>
+      <p>
+        Destroys a bitmap object, freeing up the resources it was using.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_load_bitmap">
+      <h1><code>picel_load_bitmap</code></h1>
+      <p class="syntax"><code>
+        <b>PicelBitmap *</b>picel_load_bitmap<b>(const char
+        *</b>filename<b>)</b>
+      </code></p>
+      <p>
+        Load the contents of an image file. The format is determined by
+        examining the file header. Returns a pointer to the bitmap object if
+        the file was loaded successfully or <code>NULL</code> if there was an
+        error.
+      </p>
+      <p>
+        Remember to call <a href="#picel_destroy_bitmap"><code
+        >picel_destroy_bitmap</code></a> when you're done using the bitmap to
+        free the resources it's using.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_load_png">
+      <h1><code>picel_load_png</code></h1>
+      <p class="syntax"><code>
+        <b>PicelBitmap *</b>picel_load_png<b>(const char
+        *</b>filename<b>)</b>
+      </code></p>
+      <p>
+        Load the contents of a PNG file. Returns a pointer to the bitmap
+        object if the file was loaded successfully or <code>NULL</code> if
+        there was an error.
+      </p>
+      <p>
+        Remember to call <a href="#picel_destroy_bitmap"><code
+        >picel_destroy_bitmap</code></a> when you're done using the bitmap to
+        free the resources it's using.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_save_png">
+      <h1><code>picel_save_png</code></h1>
+      <p class="syntax"><code>
+        <b>int</b> picel_save_png<b>(const char *</b>filename<b>, const
+        PicelBitmap *</b>bitmap<b>)</b>
+      </code></p>
+      <p>
+        Saves the contents of a bitmap into a PNG file. Returns zero if the
+        file was saved successfully or non-zero if something went wrong.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+  </body>
+</html>

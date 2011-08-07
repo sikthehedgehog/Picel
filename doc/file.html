@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="./style.css"/>
+    <title>File handling - Picel reference</title>
+  </head>
+  <body>
+    <section id="top">
+      <h1>File handling</h1>
+      <nav><ul>
+        <li><a href="#picel_set_open_func"><code
+                     >picel_set_open_func</code></a></li>
+        <li><a href="#picel_set_read_func"><code
+                     >picel_set_read_func</code></a></li>
+        <li><a href="#picel_set_write_func"><code
+                     >picel_set_write_func</code></a></li>
+        <li><a href="#picel_set_seek_func"><code
+                     >picel_set_seek_func</code></a></li>
+        <li><a href="#picel_set_close_func"><code
+                     >picel_set_close_func</code></a></li>
+        <li><a href="#picel_get_open_func"><code
+                     >picel_get_open_func</code></a></li>
+        <li><a href="#picel_get_read_func"><code
+                     >picel_get_read_func</code></a></li>
+        <li><a href="#picel_get_write_func"><code
+                     >picel_get_write_func</code></a></li>
+        <li><a href="#picel_get_seek_func"><code
+                     >picel_get_seek_func</code></a></li>
+        <li><a href="#picel_get_close_func"><code
+                     >picel_get_close_func</code></a></li>
+      </ul></nav>
+      <p class="up"><a href="./index.html">
+        Back to index
+      </a></p>
+    </section>
+    <section id="picel_set_open_func">
+      <h1><code>picel_set_open_func</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_open_func<b>(PicelOpenFunc
+        *</b>function<b>)</b>
+      </code></p>
+      <p>
+        Sets the function used to open a file. If the parameter is
+        <code>NULL</code>, the default function is used instead.
+      </p>
+      <p>
+        The function must follow this prototype:
+      </p>
+      <p class="syntax"><code>
+        <b>void *</b>function<b>(const char *</b>filename<b>,
+        PicelOpenMode</b> mode<b>)</b>
+      </code></p>
+      <p>
+        Where <var><code>file</code></var> is the pointer to the file handle
+        and <var><code>mode</code></var> is how to open the file. It must
+        return a pointer to the file handle if opened successfully or
+        <code>NULL</code> if the file couldn't be opened.
+      </p>
+      <p>
+        The mode may be either <code>PICEL_OPEN_READ</code> to open for
+        read only or <code>PICEL_OPEN_WRITE</code> to open for write only.
+        Files are always opened in binary mode.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_read_func">
+      <h1><code>picel_set_read_func</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_read_func<b>(PicelReadFunc
+        *</b>function<b>)</b>
+      </code></p>
+      <p>
+        Sets the function used to read from a file. If the parameter is
+        <code>NULL</code>, the default function is used instead.
+      </p>
+      <p>
+        The function must follow this prototype:
+      </p>
+      <p class="syntax"><code>
+        <b>int</b> function<b>(void *</b>file<b>, void *</b>buffer<b>,
+        size_t</b> size<b>)</b>
+      </code></p>
+      <p>
+        Where <var><code>file</code></var> is the pointer to the file handle,
+        <var><code>buffer</code></var> is where the data will be stored and
+        <var><code>size</code></var> is the amount of bytes to read. It
+        should return zero on success or non-zero on failure.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_write_func">
+      <h1><code>picel_set_write_func</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_write_func<b>(PicelWriteFunc
+        *</b>function<b>)</b>
+      </code></p>
+      <p>
+        Sets the function used to write into a file. If the parameter is
+        <code>NULL</code>, the default function is used instead.
+      </p>
+      <p>
+        The function must follow this prototype:
+      </p>
+      <p class="syntax"><code>
+        <b>int</b> function<b>(void *</b>file<b>, const void *</b>buffer<b>,
+        size_t</b> size<b>)</b>
+      </code></p>
+      <p>
+        Where <var><code>file</code></var> is the pointer to the file handle,
+        <var><code>buffer</code></var> is a pointer to the data to be written
+        and <var><code>size</code></var> is the amount of bytes to write. It
+        should return zero on success or non-zero on failure.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_seek_func">
+      <h1><code>picel_set_seek_func</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_seek_func<b>(PicelSeekFunc
+        *</b>function<b>)</b>
+      </code></p>
+      <p>
+        Sets the function used to set the current position in a file. If the
+        parameter is <code>NULL</code>, the default function will be used
+        instead.
+      </p>
+      <p>
+        The function must follow this prototype:
+      </p>
+      <p class="syntax"><code>
+        <b>int</b> PicelSeekFunc<b>(void *</b>file<b>, long</b> offset<b>,
+        PicelSeekMode</b> mode<b>)</b>
+      </code></p>
+      <p>
+        Where <var><code>file</code></var> is the pointer to the file handle,
+        <var><code>offset</code></var> the position (measured in bytes) and
+        <var><code>mode</code></var> determines from where is the position
+        calculated.
+      </p>
+      <p>
+        If the mode is <code>PICEL_SEEK_SET</code>, the position is
+        calculated from the beginning of the file. If the mode is
+        <code>PICEL_SEEK_CUR</code>, the offset is relative to the current
+        position. If the mode is <code>PICEL_SEEK_END</code>, the offset is
+        relative to the end of the file.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_set_close_func">
+      <h1><code>picel_set_close_func</code></h1>
+      <p class="syntax"><code>
+        <b>void</b> picel_set_close_func<b>(PicelCloseFunc
+        *</b>function<b>)</b>
+      </code></p>
+      <p>
+        Sets the function used to close a file. If the parameter is
+        <code>NULL</code>, the default function will be used instead.
+      </p>
+      <p>
+        The function must follow this prototype:
+      </p>
+      <p class="syntax"><code>
+        <b>void</b> function<b>(void *</b>file<b>)</b>
+      </code></p>
+      <p>
+        Where <var><code>file</code></var> is the pointer to the file handle.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_open_func">
+      <h1><code>picel_get_open_func</code></h1>
+      <p class="syntax"><code>
+        <b>PicelOpenFunc *</b>picel_get_open_func<b>(void)</b>
+      </code></p>
+      <p>
+        Gets a pointer to the callback function being used to open files.
+        This function can be changed by calling <a href=
+        "#picel_set_open_func"><code>picel_set_open_func</code></a>.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_read_func">
+      <h1><code>picel_get_read_func</code></h1>
+      <p class="syntax"><code>
+        <b>PicelReadFunc *</b>picel_get_read_func<b>(void)</b>
+      </code></p>
+      <p>
+        Gets a pointer to the callback function being used to reading from
+        files. This function can be changed by calling <a href=
+        "#picel_set_read_func"><code>picel_set_read_func</code></a>.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_write_func">
+      <h1><code>picel_get_write_func</code></h1>
+      <p class="syntax"><code>
+        <b>PicelWriteFunc *</b>picel_get_write_func<b>(void)</b>
+      </code></p>
+      <p>
+        Gets a pointer to the callback function being used to writing into
+        files. This function can be changed by calling <a href=
+        "#picel_set_write_func"><code>picel_set_write_func</code></a>.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_seek_func">
+      <h1><code>picel_get_seek_func</code></h1>
+      <p class="syntax"><code>
+        <b>PicelSeekFunc *</b>picel_get_seek_func<b>(void)</b>
+      </code></p>
+      <p>
+        Gets a pointer to the callback function being used to seeking inside
+        files. This function can be changed by calling <a href=
+        "#picel_set_seek_func"><code>picel_set_seek_func</code></a>.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+    <section id="picel_get_close_func">
+      <h1><code>picel_get_close_func</code></h1>
+      <p class="syntax"><code>
+        <b>PicelCloseFunc *</b>picel_get_close_func<b>(void)</b>
+      </code></p>
+      <p>
+        Gets a pointer to the callback function being used to close files.
+        This function can be changed by calling <a href=
+        "#picel_set_close_func"><code>picel_set_close_func</code></a>.
+      </p>
+      <p class="back"><a href="#top">
+        Back to top
+      </a></p>
+    </section>
+  </body>
+</html>
