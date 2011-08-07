@@ -9,7 +9,7 @@
 #include "picel.h"
 
 // Prototypes for the default functions for handling streams
-static void *defopenfunc(const char *, int);
+static void *defopenfunc(const char *, PicelOpenMode);
 static int defreadfunc(void *, void *, size_t);
 static int defseekfunc(void *, long, PicelSeekMode);
 static int defwritefunc(void *, const void *, size_t);
@@ -151,9 +151,17 @@ PicelCloseFunc *picel_get_close_func(void) {
 // return: stream handle or NULL on failure
 //***************************************************************************
 
-static void *defopenfunc(const char *name, int mode) {
+static void *defopenfunc(const char *name, PicelOpenMode mode) {
+   // Determine mode to use
+   const char *fmode;
+   switch (mode) {
+      case PICEL_OPEN_READ: fmode = "rb"; break;
+      case PICEL_OPEN_WRITE: fmode = "wb"; break;
+      default: return NULL;
+   }
+
    // Use stdio to open a file
-   return fopen(name, mode ? "wb" : "rb");
+   return fopen(name, fmode);
 }
 
 //***************************************************************************

@@ -19,6 +19,12 @@ extern "C" {
 // Object type declarations
 typedef struct _PicelBitmap PicelBitmap;
 
+// Possible stream opening modes
+typedef enum {
+   PICEL_OPEN_READ,
+   PICEL_OPEN_WRITE
+} PicelOpenMode;
+
 // Possible seeking modes
 // Yes, these are equivalent to their standard library counterparts...
 // I can't rely on their value being the same across systems though
@@ -29,7 +35,7 @@ typedef enum {
 } PicelSeekMode;
 
 // Prototypes for stream handling functions
-typedef void *PicelOpenFunc(const char *, int);
+typedef void *PicelOpenFunc(const char *, PicelOpenMode);
 typedef int PicelReadFunc(void *, void *, size_t);
 typedef int PicelSeekFunc(void *, long, PicelSeekMode);
 typedef int PicelWriteFunc(void *, const void *, size_t);
