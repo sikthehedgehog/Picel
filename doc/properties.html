@@ -9,12 +9,12 @@
     <section id="top">
       <h1>Bitmap properties</h1>
       <nav><ul>
-        <li><a href="#picel_get_width"><code
-                     >picel_get_width</code></a></li>
-        <li><a href="#picel_get_height"><code
-                     >picel_get_height</code></a></li>
-        <li><a href="#picel_is_paletted"><code
-                     >picel_is_paletted</code></a></li>
+        <li><a href="#picel_get_bitmap_width"><code
+                     >picel_get_bitmap_width</code></a></li>
+        <li><a href="#picel_get_bitmap_height"><code
+                     >picel_get_bitmap_height</code></a></li>
+        <li><a href="#picel_is_bitmap_paletted"><code
+                     >picel_is_bitmap_paletted</code></a></li>
         <li><a href="#picel_convert_bitmap"><code
                      >picel_convert_bitmap</code></a></li>
       </ul></nav>
@@ -22,10 +22,11 @@
         Back to index
       </a></p>
     </section>
-    <section id="picel_get_width">
-      <h1><code>picel_get_width</code></h1>
+    <section id="picel_get_bitmap_width">
+      <h1><code>picel_get_bitmap_width</code></h1>
       <p class="syntax"><code>
-        <b>int</b> picel_get_width<b>(const PicelBitmap *</b>bitmap<b>)</b>
+        <b>int</b> picel_get_bitmap_width<b>(const PicelBitmap
+        *</b>bitmap<b>)</b>
       </code></p>
       <p>
         Gets the width of a bitmap, in pixels.
@@ -34,10 +35,11 @@
         Back to top
       </a></p>
     </section>
-    <section id="picel_get_height">
-      <h1><code>picel_get_height</code></h1>
+    <section id="picel_get_bitmap_height">
+      <h1><code>picel_get_bitmap_height</code></h1>
       <p class="syntax"><code>
-        <b>int</b> picel_get_height<b>(const PicelBitmap *</b>bitmap<b>)</b>
+        <b>int</b> picel_get_bitmap_height<b>(const PicelBitmap
+        *</b>bitmap<b>)</b>
       </code></p>
       <p>
         Gets the height of a bitmap, in pixels.
@@ -46,10 +48,11 @@
         Back to top
       </a></p>
     </section>
-    <section id="picel_is_paletted">
-      <h1><code>picel_is_paletted</code></h1>
+    <section id="picel_is_bitmap_paletted">
+      <h1><code>picel_is_bitmap_paletted</code></h1>
       <p class="syntax"><code>
-        <b>int</b> picel_is_paletted<b>(const PicelBitmap *</b>bitmap<b>)</b>
+        <b>int</b> picel_is_bitmap_paletted<b>(const PicelBitmap
+        *</b>bitmap<b>)</b>
       </code></p>
       <p>
         Checks if a bitmap is using a palette. If the bitmap is true color,
