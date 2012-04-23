@@ -12,38 +12,38 @@
 #include "bitmap.h"
 
 //***************************************************************************
-// picel_get_width
+// picel_get_bitmap_width
 // Gets the width of a bitmap
 //---------------------------------------------------------------------------
 // param map: pointer to bitmap
 // return: width in pixels
 //***************************************************************************
 
-int picel_get_width(const PicelBitmap *map) {
+int picel_get_bitmap_width(const PicelBitmap *map) {
    return map->width;
 }
 
 //***************************************************************************
-// picel_get_height
+// picel_get_bitmap_height
 // Gets the height of a bitmap
 //---------------------------------------------------------------------------
 // param map: pointer to bitmap
 // return: height in pixels
 //***************************************************************************
 
-int picel_get_height(const PicelBitmap *map) {
+int picel_get_bitmap_height(const PicelBitmap *map) {
    return map->height;
 }
 
 //***************************************************************************
-// picel_is_paletted
+// picel_is_bitmap_paletted
 // Checks if a bitmap is using the palette
 //---------------------------------------------------------------------------
 // param map: pointer to bitmap
 // return: non-zero if using palette, zero otherwise
 //***************************************************************************
 
-int picel_is_paletted(const PicelBitmap *map) {
+int picel_is_bitmap_paletted(const PicelBitmap *map) {
    return map->paletted;
 }
 

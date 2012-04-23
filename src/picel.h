@@ -58,9 +58,9 @@ void picel_set_color(PicelBitmap *, uint8_t, uint32_t);
 uint8_t *picel_get_raw_data_ptr(PicelBitmap *);
 
 // Bitmap properties
-int picel_get_width(const PicelBitmap *);
-int picel_get_height(const PicelBitmap *);
-int picel_is_paletted(const PicelBitmap *);
+int picel_get_bitmap_width(const PicelBitmap *);
+int picel_get_bitmap_height(const PicelBitmap *);
+int picel_is_bitmap_paletted(const PicelBitmap *);
 int picel_convert_bitmap(PicelBitmap *, int, int, int);
 
 // Stream functions
